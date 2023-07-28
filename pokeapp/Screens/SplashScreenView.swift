@@ -10,20 +10,7 @@ import SwiftUI
 struct SplashScreenView: View {
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [
-                    .customBlue,
-                    .customLightBlue,
-                    .customLightGreen,
-                    .customGreen
-                ],
-                startPoint: .leading,
-                endPoint: .trailing
-            )
-            .ignoresSafeArea()
-            Color.customSnow
-                .opacity(0.8)
-                .ignoresSafeArea()
+            CustomBackgroundView()
             Image("pokeball")
                 .resizable()
                 .frame(width: 105, height: 105)

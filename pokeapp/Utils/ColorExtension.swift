@@ -14,4 +14,5 @@ extension Color {
     static let customLightGreen = Color("ColorLightGreen")
     static let customGreen = Color("ColorGreen")
     static let customSnow = Color("ColorSnow")
+    static let customDark = Color("ColorDark")
 }
