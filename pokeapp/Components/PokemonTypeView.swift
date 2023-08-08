@@ -18,8 +18,8 @@ struct PokemonTypeView: View {
                 .padding(.leading, displayName ? 14 : 0)
             if (displayName) {
                 Spacer()
-                Text(pokemonType.typeName.rawValue)
-                    .font(.custom("Avenir", size: 14))
+                Text(pokemonType.typeName.rawValue.uppercased())
+                    .font(.custom("Avenir", size: 12))
                     .fontWeight(.heavy)
                     .foregroundColor(.white)
                 Spacer()

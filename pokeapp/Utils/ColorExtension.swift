@@ -14,6 +14,7 @@ extension Color {
     static let customLightGreen = Color("ColorLightGreen")
     static let customGreen = Color("ColorGreen")
     static let customSnow = Color("ColorSnow")
+    static let customDarkSnow = Color("ColorDarkSnow")
     static let customDark = Color("ColorDark")
     static let customGray = Color("ColorGray")
     static let customLightGray = Color("ColorLightGray")
@@ -50,6 +51,6 @@ extension Color {
     static let customTypeRockLight = Color("ColorTypeRockLight")
     static let customTypeSteel = Color("ColorTypeSteel")
     static let customTypeSteelLight = Color("ColorTypeSteelLight")
-    static let customTypeWater = Color("customTypeWater")
-    static let customTypeWaterLight = Color("customTypeWaterLight")
+    static let customTypeWater = Color("ColorTypeWater")
+    static let customTypeWaterLight = Color("ColorTypeWaterLight")
 }

@@ -8,19 +8,22 @@
 import Foundation
 import SwiftUI
 
-class PokemonType {
+let maxBaseStat: Double = 225.0
+let minBaseStat: Double = 1.0
+struct PokemonType: Hashable {
     var typeName: PokemonTypeNames
-    var typeImageName: String
-    var typeColor: Color
-    var typeColorLight: Color
-
-    init(
-        typeName: PokemonTypeNames
-    ) {
-        self.typeName = typeName
-        self.typeImageName = "type-\(self.typeName)".lowercased()
-        self.typeColor = Color("ColorType\(self.typeName)")
-        self.typeColorLight = Color("ColorType\(self.typeName)Light")
+    var typeImageName: String {
+        get {
+            return "type-\(self.typeName)".lowercased()
+        }
+    }
+    var typeColor: Color {
+        get {
+            return Color("ColorType\(self.typeName)")
+        }
+    }
+    var typeColorLight: Color {
+        return Color("ColorType\(self.typeName)Light")
     }
 }
 
@@ -45,21 +48,54 @@ enum PokemonTypeNames: String, CaseIterable {
     case Steel = "Steel"
 }
 
-class Pokemon {
+@propertyWrapper
+struct Stat {
+    private let getSecureStatVal = { $0 > maxBaseStat ? maxBaseStat : $0 < minBaseStat ? minBaseStat : $0}
+    private var value: Double = 1
+    var wrappedValue: Double {
+        get {
+            return value
+        }
+        set {
+            value = getSecureStatVal(newValue)
+        }
+    }
+}
+struct PokemonsStats {
+    @Stat var HP: Double
+    @Stat var ATK: Double
+    @Stat var DEF: Double
+    @Stat var SATK: Double
+    @Stat var SDEF: Double
+    @Stat var SPD: Double
+
+    var TOTAL: Double {
+        get {
+            return HP + ATK + DEF + SATK + SDEF + SPD
+        }
+    }
+    
+    init(HP: Double, ATK: Double, DEF: Double, SATK: Double, SDEF: Double, SPD: Double) {
+        self.HP = HP
+        self.ATK = ATK
+        self.DEF = DEF
+        self.SATK = SATK
+        self.SDEF = SDEF
+        self.SPD = SPD
+    }
+}
+struct Pokemon: Hashable {
+    static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
+        return lhs.name == rhs.name && lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        return hasher.combine(id)
+    }
+    
     var name: String
     var id: String
     var imageUrl: URL
     var types: [PokemonType]
-    
-    init(
-        name: String,
-        id: String,
-        imageUrl: URL,
-        types: [PokemonType]
-    ) {
-        self.name = name
-        self.id = id
-        self.imageUrl = imageUrl
-        self.types = types
-    }
+    var stats: PokemonsStats?
 }
