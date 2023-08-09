@@ -20,9 +20,12 @@ struct PokemonStatView: View {
             Text(name)
                 .font(.custom("Avenir", size: 12))
                 .fontWeight(.heavy)
+                .frame(width: 35, alignment: .leading)
+            
             Text(String(Int(value)))
                 .font(.custom("Avenir", size: 14))
                 .fontWeight(.light)
+                .frame(width: 30, alignment: .leading)
             CustomLinearProgressView(colors: colors, value: getStatPercentage(value))
         }
     }

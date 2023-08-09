@@ -14,14 +14,8 @@ struct PokemonRowView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                AsyncImage(url: pokemon.imageUrl) { image in
-                    image
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                } placeholder: {
-                    ProgressView()
-                }
-                .padding(.trailing, 13)
+                CustomImageView(url: pokemon.imageUrl, color: pokemon.types[0].typeColor, sizes: (50, 50))
+                    .padding(.trailing, 13)
                 VStack(alignment: .leading) {
                     Text(pokemon.name)
                         .font(.custom("Avenir", size: 19))
@@ -39,7 +33,7 @@ struct PokemonRowView: View {
                     }
                 }
             }
-            .padding(.bottom, 10)
+                .padding(.bottom, 10)
             Divider()
                 .frame(height: 1)
                 .background(

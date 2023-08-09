@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Transmission
 
 var pokemons: [Pokemon] = Array(repeating: Pokemon(
     name: "Bulbasour",
@@ -20,7 +21,8 @@ var pokemons: [Pokemon] = Array(repeating: Pokemon(
 struct PokemonScreenView: View {
     @State var searchText: String = ""
     @State var isSheetOpen: Bool = false
-
+    @State var pokemonForSheet: Pokemon = firstPokemonGroup[0]
+    
     var body: some View {
             VStack(spacing: 0) {
                 HeaderView(
@@ -28,20 +30,23 @@ struct PokemonScreenView: View {
                     title: "Pokemon"
                 )
                 ScrollView(showsIndicators: false) {
-                    ForEach(pokemons, id: \.self) { pokemon in
+                    ForEach(firstPokemonGroup, id: \.self) { pokemon in
                         Button {
+                            pokemonForSheet = pokemon
                             isSheetOpen.toggle()
                         } label: {
                             PokemonRowView(
                                 pokemon: pokemon
                             )
                         }
-                        .sheet(isPresented: $isSheetOpen) {
-                            PokemonDetailsScreenView(pokemon: pokemon)
-                                .presentationDetents([.fraction(0.7766)])
-                        }
                     }
                 }
+            }
+            .sheet(isPresented: $isSheetOpen) {
+                PokemonDetailsScreenView(pokemon: $pokemonForSheet)
+                    .presentationDetents([.fraction(0.8)])
+                    .presentationDragIndicator(.visible
+                    )
             }
     }
 }

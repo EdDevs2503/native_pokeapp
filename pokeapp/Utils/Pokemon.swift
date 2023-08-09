@@ -98,4 +98,5 @@ struct Pokemon: Hashable {
     var imageUrl: URL
     var types: [PokemonType]
     var stats: PokemonsStats?
+    var description: String?
 }
