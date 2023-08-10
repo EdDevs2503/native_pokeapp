@@ -44,10 +44,13 @@ struct PokemonDetailsScreenView: View {
                 
                 switch sectionIndex {
                 case 0:
-                    PokemonStatsView(
-                        stats: pokemon.stats!,
-                        colors: [pokemon.types[0].typeColorLight, pokemon.types[0].typeColor]
-                    )
+                    VStack(spacing: 30) {
+                        PokemonStatsView(
+                            stats: pokemon.stats!,
+                            colors: [pokemon.types[0].typeColorLight, pokemon.types[0].typeColor]
+                        )
+                        WeaknessesTableView(typesToCompare: pokemon.types)
+                    }
                     .padding(.top, 20)
                     .padding(.horizontal, 9)
                 default:
@@ -59,6 +62,7 @@ struct PokemonDetailsScreenView: View {
             .padding(.top, 10)
         }
         .scrollBounceBehavior(.basedOnSize)
+        .padding(.top, 10)
     }
 }
 
@@ -80,6 +84,7 @@ struct SomeRandomView: View {
         }.sheet(isPresented: $open) {
             PokemonDetailsScreenView(pokemon: $pokemon)
             .presentationDetents([.fraction(0.7766)])
+            .presentationDragIndicator(.visible)
         }
     }
 }
