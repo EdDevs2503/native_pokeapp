@@ -13,7 +13,7 @@ struct WeaknessesTableView: View {
     var body: some View {
         let weakness: PokemonTypeWeakness = typesToCompare.reduce(PokemonTypeWeakness()) { reduced, toCompare in
             let weakness = getTypeWeaknesses(toCompare.typeName)
-            return reduced.merge(weakness)
+            return reduced.mergeWith(weakness)
         }
         
         VStack(spacing: 25) {
@@ -53,6 +53,6 @@ struct WeaknessesTableView: View {
 
 struct WeaknessesTableView_Previews: PreviewProvider {
     static var previews: some View {
-        WeaknessesTableView(typesToCompare: [PokemonType(typeName: .Flying), PokemonType(typeName: .Steel)])
+        WeaknessesTableView(typesToCompare: [PokemonType(typeName: .Fire), PokemonType(typeName: .Steel)])
     }
 }

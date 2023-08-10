@@ -106,7 +106,7 @@ struct PokemonTypeWeakness {
         }
     }
     
-    func merge (_ toCompare: PokemonTypeWeakness) -> PokemonTypeWeakness {
+    func mergeWith (_ toCompare: PokemonTypeWeakness) -> PokemonTypeWeakness {
         let s1 = allWeakness.subtracting(toCompare.allStrenghts)
         let s2 = toCompare.allWeakness.subtracting(allStrenghts)
 
@@ -203,7 +203,7 @@ func getTypeWeaknesses(_ typeToCompare: PokemonTypeNames) -> PokemonTypeWeakness
     case .Rock:
         return PokemonTypeWeakness(Fire: .Strong, Water: .Weak, Fight: .Weak, Flying: .Strong, Grass: .Weak, Ground: .Weak, Normal: .Strong, Steel: .Weak, Poison: .Weak)
     case .Steel:
-        return PokemonTypeWeakness(Fire: .Weak, Bug: .Strong, Dragon: .Strong, Fairy: .Strong, Fight: .Weak, Flying: .Strong, Grass: .Strong, Ground: .Strong, Ice: .Strong, Normal: .Strong, Psychic: .Strong, Rock: .Strong, Steel: .Strong, Poison: .NoEffect)
+        return PokemonTypeWeakness(Fire: .Weak, Bug: .Strong, Dragon: .Strong, Fairy: .Strong, Fight: .Weak, Flying: .Strong, Grass: .Strong, Ground: .Weak, Ice: .Strong, Normal: .Strong, Psychic: .Strong, Rock: .Strong, Steel: .Strong, Poison: .NoEffect)
     }
 }
 
