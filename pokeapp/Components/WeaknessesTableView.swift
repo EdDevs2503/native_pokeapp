@@ -10,10 +10,10 @@ import SwiftUI
 struct WeaknessesTableView: View {
     @State var typesToCompare: [PokemonType]
     
-    var body: some View {        
+    var body: some View {
         let weakness: PokemonTypeWeakness = typesToCompare.reduce(PokemonTypeWeakness()) { reduced, toCompare in
             let weakness = getTypeWeaknesses(toCompare.typeName)
-            return reduced.compare(weakness)
+            return reduced.merge(weakness)
         }
         
         VStack(spacing: 25) {

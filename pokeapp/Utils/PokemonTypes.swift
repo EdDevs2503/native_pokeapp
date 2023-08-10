@@ -106,7 +106,7 @@ struct PokemonTypeWeakness {
         }
     }
     
-    func compare (_ toCompare: PokemonTypeWeakness) -> PokemonTypeWeakness {
+    func merge (_ toCompare: PokemonTypeWeakness) -> PokemonTypeWeakness {
         let s1 = allWeakness.subtracting(toCompare.allStrenghts)
         let s2 = toCompare.allWeakness.subtracting(allStrenghts)
 
