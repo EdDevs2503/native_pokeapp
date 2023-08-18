@@ -28,13 +28,14 @@
 		316FB6FC2A81B3200025D938 /* PokemonStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FB6FB2A81B3200025D938 /* PokemonStatsView.swift */; };
 		316FB6FE2A81BD080025D938 /* CustomLinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FB6FD2A81BD080025D938 /* CustomLinearProgressView.swift */; };
 		316FB7002A81CBA70025D938 /* PokemonStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316FB6FF2A81CBA70025D938 /* PokemonStatView.swift */; };
+		31F197262A8DDC0A00B8C10E /* PokemonAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 31F197252A8DDC0A00B8C10E /* PokemonAPI */; };
+		31F197292A8DDC9300B8C10E /* Transmission in Frameworks */ = {isa = PBXBuildFile; productRef = 31F197282A8DDC9300B8C10E /* Transmission */; };
 		31F1D5062A75B8CD00E908F4 /* PokemonScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D5052A75B8CD00E908F4 /* PokemonScreenView.swift */; };
 		31F1D5082A76C7E400E908F4 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D5072A76C7E400E908F4 /* CustomTabView.swift */; };
 		31F1D50A2A76C86B00E908F4 /* CustomTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D5092A76C86B00E908F4 /* CustomTabItem.swift */; };
 		31F1D50C2A79FA4000E908F4 /* PokemonDetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D50B2A79FA4000E908F4 /* PokemonDetailsScreenView.swift */; };
 		31F1D5122A7A8BA000E908F4 /* CustomTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D5112A7A8BA000E908F4 /* CustomTabItemView.swift */; };
 		31F1D5142A7C4E8200E908F4 /* TabViewIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D5132A7C4E8200E908F4 /* TabViewIndex.swift */; };
-		31F1D5172A7EE02C00E908F4 /* Transmission in Frameworks */ = {isa = PBXBuildFile; productRef = 31F1D5162A7EE02C00E908F4 /* Transmission */; };
 		31F1D51B2A7FF9E600E908F4 /* SectionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1D51A2A7FF9E500E908F4 /* SectionTabView.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31F1D5172A7EE02C00E908F4 /* Transmission in Frameworks */,
+				31F197292A8DDC9300B8C10E /* Transmission in Frameworks */,
+				31F197262A8DDC0A00B8C10E /* PokemonAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +186,8 @@
 			);
 			name = pokeapp;
 			packageProductDependencies = (
-				31F1D5162A7EE02C00E908F4 /* Transmission */,
+				31F197252A8DDC0A00B8C10E /* PokemonAPI */,
+				31F197282A8DDC9300B8C10E /* Transmission */,
 			);
 			productName = pokeapp;
 			productReference = 3157FEAA2A74533B006FA242 /* pokeapp.app */;
@@ -215,7 +218,8 @@
 			);
 			mainGroup = 3157FEA12A74533A006FA242;
 			packageReferences = (
-				31F1D5152A7EE02C00E908F4 /* XCRemoteSwiftPackageReference "Transmission" */,
+				31F197242A8DDC0A00B8C10E /* XCRemoteSwiftPackageReference "PokemonAPI" */,
+				31F197272A8DDC9300B8C10E /* XCRemoteSwiftPackageReference "Transmission" */,
 			);
 			productRefGroup = 3157FEAB2A74533B006FA242 /* Products */;
 			projectDirPath = "";
@@ -401,6 +405,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pokeapp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PokeApp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -408,6 +413,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,6 +439,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = pokeapp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PokeApp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -440,6 +447,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,7 +485,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		31F1D5152A7EE02C00E908F4 /* XCRemoteSwiftPackageReference "Transmission" */ = {
+		31F197242A8DDC0A00B8C10E /* XCRemoteSwiftPackageReference "PokemonAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kinkofer/PokemonAPI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		31F197272A8DDC9300B8C10E /* XCRemoteSwiftPackageReference "Transmission" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nathantannar4/Transmission";
 			requirement = {
@@ -488,9 +504,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		31F1D5162A7EE02C00E908F4 /* Transmission */ = {
+		31F197252A8DDC0A00B8C10E /* PokemonAPI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 31F1D5152A7EE02C00E908F4 /* XCRemoteSwiftPackageReference "Transmission" */;
+			package = 31F197242A8DDC0A00B8C10E /* XCRemoteSwiftPackageReference "PokemonAPI" */;
+			productName = PokemonAPI;
+		};
+		31F197282A8DDC9300B8C10E /* Transmission */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31F197272A8DDC9300B8C10E /* XCRemoteSwiftPackageReference "Transmission" */;
 			productName = Transmission;
 		};
 /* End XCSwiftPackageProductDependency section */

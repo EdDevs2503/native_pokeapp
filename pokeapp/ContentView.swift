@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import PokemonAPI
+
+let API = PokemonAPI()
 
 struct TabViewItems {
     var pokemon: CustomTabItem = CustomTabItem(rawImage: "pokemon", name: "Pokemon", tab: .Pokemon)
@@ -16,7 +19,8 @@ struct TabViewItems {
 struct ContentView: View {
     @State var selectTabIndex: TabViewIndex = .Pokemon
     @State var searchText: String = ""
-
+    @State var pokemons: [Pokemon] = []
+    
     var body: some View {
         VStack(spacing: 0) {
             switch selectTabIndex {
@@ -34,6 +38,25 @@ struct ContentView: View {
                 ],
                 selectedIndex: $selectTabIndex
             )
+        }
+        .onAppear {
+            // Calling pokemons
+            Task {
+                do {
+                    try await withThrowingTaskGroup(of: PKMPokemon.self) { taskGroup in
+                        let pokemonsList = try await API.pokemonService.fetchPokemonList(paginationState: .initial(pageLimit: 1))
+                        let pokemonsCount = pokemonsList.count ?? 0
+                        for index in 1..<pokemonsCount {
+                            print(index)
+//                            taskGroup.addTask { try await API.pokemonService.fetchPokemon(index) }
+                        }
+                        let result: () = try await taskGroup.waitForAll()
+                        print(result)
+                    }
+                } catch let error {
+                    print("An error ocurred: \(error.localizedDescription)")
+                }
+            }
         }
     }
 }

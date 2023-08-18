@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import PokemonAPI
 
 let maxBaseStat: Double = 225.0
 let minBaseStat: Double = 1.0
+
 
 @propertyWrapper
 struct Stat {
@@ -36,7 +38,7 @@ struct PokemonsStats {
             return HP + ATK + DEF + SATK + SDEF + SPD
         }
     }
-    
+            
     init(HP: Double, ATK: Double, DEF: Double, SATK: Double, SDEF: Double, SPD: Double) {
         self.HP = HP
         self.ATK = ATK
@@ -44,5 +46,25 @@ struct PokemonsStats {
         self.SATK = SATK
         self.SDEF = SDEF
         self.SPD = SPD
+    }
+    init(_ stats: [PKMPokemonStat]) {
+        for stat in stats {
+            switch(stat.stat?.name) {
+            case "hp":
+                self.HP = Double(stat.baseStat ?? 0)
+            case "attack":
+                self.ATK = Double(stat.baseStat ?? 0)
+            case "defense":
+                self.DEF = Double(stat.baseStat ?? 0)
+            case "special-attack":
+                self.SATK = Double(stat.baseStat ?? 0)
+            case "special-defense":
+                self.SDEF = Double(stat.baseStat ?? 0)
+            case "speed":
+                self.SPD = Double(stat.baseStat ?? 0)
+            default:
+                print("No valid type")
+            }
+        }
     }
 }
