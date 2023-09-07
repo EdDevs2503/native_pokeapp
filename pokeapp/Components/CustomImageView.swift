@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct CustomImageView: View {
     @State var url: URL
@@ -13,7 +14,7 @@ struct CustomImageView: View {
     @State var rotate: Double = 0
     @State var sizes: (CGFloat, CGFloat)
     var body: some View {
-        AsyncImage(url: url) { Image in
+        CachedAsyncImage(url: url) { Image in
             Image
                 .resizable()
                 .frame(width: sizes.0, height: sizes.1)

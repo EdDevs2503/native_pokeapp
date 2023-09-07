@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Transmission
 
 enum SectionTabItems: Int {
     case Stats = 0
@@ -50,6 +49,19 @@ struct PokemonDetailsScreenView: View {
                             colors: [pokemon.types[0].typeColorLight, pokemon.types[0].typeColor]
                         )
                         WeaknessesTableView(typesToCompare: pokemon.types)
+                        if (pokemon.abilities?.count ?? 0 > 0) {
+                            PokemonAbilitiesView(
+                                titleColor: pokemon.types[0].typeColor,
+                                abilities: pokemon.abilities ?? []
+                            )
+                        }
+                        PokemonBreedingView(
+                            titleColor: pokemon.types[0].typeColor,
+                            eggGroups: pokemon.eggGroups ?? [],
+                            hatchTime: pokemon.hatch ?? 20,
+                            femaleRate: pokemon.femaleRate ?? 1,
+                            steps: pokemon.stepsToHatch ?? 0
+                        )
                     }
                     .padding(.top, 20)
                     .padding(.horizontal, 9)

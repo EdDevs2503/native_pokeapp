@@ -53,4 +53,7 @@ extension Color {
     static let customTypeSteelLight = Color("ColorTypeSteelLight")
     static let customTypeWater = Color("ColorTypeWater")
     static let customTypeWaterLight = Color("ColorTypeWaterLight")
+    static let customLight = Color("ColorLight")
+    static let customFemale = Color("ColorFemale")
+    static let customMale = Color("ColorMale")
 }
