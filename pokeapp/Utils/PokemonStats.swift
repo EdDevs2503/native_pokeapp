@@ -47,24 +47,12 @@ struct PokemonsStats {
         self.SDEF = SDEF
         self.SPD = SPD
     }
-    init(_ stats: [PKMPokemonStat]) {
-        for stat in stats {
-            switch(stat.stat?.name) {
-            case "hp":
-                self.HP = Double(stat.baseStat ?? 0)
-            case "attack":
-                self.ATK = Double(stat.baseStat ?? 0)
-            case "defense":
-                self.DEF = Double(stat.baseStat ?? 0)
-            case "special-attack":
-                self.SATK = Double(stat.baseStat ?? 0)
-            case "special-defense":
-                self.SDEF = Double(stat.baseStat ?? 0)
-            case "speed":
-                self.SPD = Double(stat.baseStat ?? 0)
-            default:
-                print("No valid type")
-            }
-        }
+    init(_ stat: StatsData) {
+        self.HP = Double(stat.hp)
+        self.ATK = Double(stat.attack)
+        self.DEF = Double(stat.defense)
+        self.SATK = Double(stat.special_attack)
+        self.SDEF = Double(stat.special_defense)
+        self.SPD = Double(stat.speed)
     }
 }

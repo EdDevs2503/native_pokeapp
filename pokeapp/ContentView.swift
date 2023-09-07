@@ -39,25 +39,6 @@ struct ContentView: View {
                 selectedIndex: $selectTabIndex
             )
         }
-        .onAppear {
-            // Calling pokemons
-            Task {
-                do {
-                    try await withThrowingTaskGroup(of: PKMPokemon.self) { taskGroup in
-                        let pokemonsList = try await API.pokemonService.fetchPokemonList(paginationState: .initial(pageLimit: 1))
-                        let pokemonsCount = pokemonsList.count ?? 0
-                        for index in 1..<pokemonsCount {
-                            print(index)
-//                            taskGroup.addTask { try await API.pokemonService.fetchPokemon(index) }
-                        }
-                        let result: () = try await taskGroup.waitForAll()
-                        print(result)
-                    }
-                } catch let error {
-                    print("An error ocurred: \(error.localizedDescription)")
-                }
-            }
-        }
     }
 }
 

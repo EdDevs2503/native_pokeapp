@@ -9,14 +9,16 @@ import SwiftUI
 
 struct HeaderView: View {
     @Binding var searchText: String
-    @State var title: String
+    @State var title: String?
     
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 0) {
-                Text("\(self.title)")
-                    .font(.custom("Avenir", size: 20))
-                    .fontWeight(.medium)
+                if title != nil {
+                    Text("\(self.title!)")
+                        .font(.custom("Avenir", size: 20))
+                        .fontWeight(.medium)
+                }
                 SearchBarView(searchText: $searchText)
                     .padding(.horizontal, 16)
                     .padding(.top, 10)

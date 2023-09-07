@@ -15,8 +15,6 @@ struct SplashScreenView: View {
                 .resizable()
                 .frame(width: 105, height: 105)
                 .foregroundColor(.customSnow.opacity(0.8))
-            
-                
         }
     }
 }
